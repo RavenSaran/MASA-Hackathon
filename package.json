@@ -1,0 +1,12 @@
+{
+  "name": "masa-dashboard",
+  "version": "1.0.0",
+  "description": "MASA hackathon dashboard for climate-induced flood risk and insurance loss modelling.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
