@@ -1,6 +1,25 @@
+const countryData = [
+  { country: 'Indonesia', riskIndex: '92', floodProbability: 0.83, averageLoss: 820 },
+  { country: 'Malaysia', riskIndex: '78', floodProbability: 0.64, averageLoss: 420 },
+  { country: 'Philippines', riskIndex: '85', floodProbability: 0.71, averageLoss: 510 }
+];
+
+const hazardData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+  hazard: [52, 58, 60, 68, 72, 75],
+  severity: [34, 38, 42, 46, 50, 53]
+};
+
+const mitigationData = {
+  labels: ['Baseline', 'Mitigation', 'Residual'],
+  losses: [620, 420, 210]
+};
+
 const renderCards = (countries) => {
   const container = document.getElementById('countryCards');
+  if (!container) return;
   container.innerHTML = '';
+
   countries.forEach((item) => {
     const card = document.createElement('div');
     card.className = 'list-group-item border-0 py-3';
@@ -10,7 +29,7 @@ const renderCards = (countries) => {
           <h6 class="mb-1">${item.country}</h6>
           <small class="text-muted">Risk Index: ${item.riskIndex}</small>
         </div>
-        <span class="badge bg-primary rounded-pill">${item.floodProbability * 100}%</span>
+        <span class="badge bg-primary rounded-pill">${Math.round(item.floodProbability * 100)}%</span>
       </div>
       <p class="mb-0 mt-2">Average loss estimate: USD ${item.averageLoss}M</p>
     `;
@@ -20,6 +39,8 @@ const renderCards = (countries) => {
 
 const renderHazardSeverityChart = (data) => {
   const ctx = document.getElementById('hazardSeverityChart');
+  if (!ctx) return;
+
   new Chart(ctx, {
     type: 'line',
     data: {
@@ -54,6 +75,8 @@ const renderHazardSeverityChart = (data) => {
 
 const renderCountryRiskChart = (items) => {
   const ctx = document.getElementById('countryRiskChart');
+  if (!ctx) return;
+
   new Chart(ctx, {
     type: 'bar',
     data: {
@@ -77,6 +100,8 @@ const renderCountryRiskChart = (items) => {
 
 const renderMitigationChart = (data) => {
   const ctx = document.getElementById('mitigationChart');
+  if (!ctx) return;
+
   new Chart(ctx, {
     type: 'doughnut',
     data: {
@@ -98,25 +123,11 @@ const renderMitigationChart = (data) => {
   });
 };
 
-const loadDashboard = async () => {
-  try {
-    const [countryResp, hazardResp, mitigationResp] = await Promise.all([
-      fetch('/api/country-risk'),
-      fetch('/api/hazard-severity'),
-      fetch('/api/mitigation')
-    ]);
-
-    const countryData = await countryResp.json();
-    const hazardData = await hazardResp.json();
-    const mitigationData = await mitigationResp.json();
-
-    renderCards(countryData);
-    renderHazardSeverityChart(hazardData);
-    renderCountryRiskChart(countryData);
-    renderMitigationChart(mitigationData);
-  } catch (error) {
-    console.error('Failed to load dashboard data', error);
-  }
+const loadDashboard = () => {
+  renderCards(countryData);
+  renderHazardSeverityChart(hazardData);
+  renderCountryRiskChart(countryData);
+  renderMitigationChart(mitigationData);
 };
 
 window.addEventListener('DOMContentLoaded', loadDashboard);
