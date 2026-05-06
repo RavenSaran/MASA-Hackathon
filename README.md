@@ -1,6 +1,3 @@
-Here's everything in one single box — just copy it all:
-
-```markdown
 # 🌊 MASA Dashboard — Climate Flood Risk & Insurance Loss
 
 A professional interactive dashboard web app built for the **MASA Hackathon**.  
