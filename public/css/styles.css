@@ -179,6 +179,14 @@ body::before {
   gap: 0.75rem;
 }
 
+.metric-card, .metric-card * {
+  color: #ffffff !important;
+}
+
+.metric-card p {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
 .hero-section .row.gx-3 {
   margin-top: 2rem;
 }
@@ -234,6 +242,22 @@ section {
   border-radius: 1.75rem;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;
+  color: #ffffff;
+}
+
+.dashboard-card, .dashboard-card * {
+  color: #ffffff;
+}
+
+.dashboard-card p,
+.dashboard-card .text-muted,
+.dashboard-card .source-list li,
+.dashboard-card .figure-title,
+.dashboard-card .metric-label,
+.dashboard-card .metric-value,
+.dashboard-card .eyebrow,
+.dashboard-card .status-pill {
+  color: rgba(255,255,255,0.92) !important;
 }
 
 .dashboard-card:hover {
