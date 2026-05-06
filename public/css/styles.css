@@ -342,27 +342,34 @@ section {
 
 @media (max-width: 767px) {
   .hero-section {
-    padding-top: 4.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 3.5rem;
+    padding-bottom: 2rem;
   }
   .hero-section .row.align-items-center {
     gap: 1rem;
   }
   .hero-panel {
     padding: 1.2rem;
+    min-height: auto;
+  }
+  .hero-copy {
+    max-width: 100%;
+  }
+  .hero-metrics {
+    margin-top: 1rem;
   }
   .eyebrow {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
   }
   .lead {
     font-size: 0.95rem;
     max-width: 100%;
   }
   .metric-value {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
   .metric-card {
-    min-height: 140px;
+    min-height: 130px;
     padding: 1rem;
   }
   .metric-card p {
@@ -378,21 +385,29 @@ section {
   .figure-card {
     min-height: 12rem;
   }
+  main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 }
 
 @media (max-width: 575px) {
   .hero-section {
-    padding-top: 4rem;
-    padding-bottom: 2rem;
+    padding-top: 3rem;
+    padding-bottom: 1.5rem;
   }
   .hero-section .row.align-items-center {
     gap: 0.75rem;
   }
   .hero-panel {
     padding: 1rem;
+    min-height: auto;
+  }
+  .hero-metrics {
+    margin-top: 0.75rem;
   }
   .metric-value {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
   .metric-card {
     min-height: 120px;
@@ -414,5 +429,9 @@ section {
   .status-pill {
     font-size: 0.75rem;
     padding: 0.5rem 1rem;
+  }
+  main {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 }
