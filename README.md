@@ -97,4 +97,3 @@ http://localhost:8000
 ## 📄 License
 
 This project was built for the MASA Hackathon. All rights reserved.
-```
