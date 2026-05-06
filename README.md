@@ -1,56 +1,105 @@
-# MASA Dashboard
+Here's everything in one single box — just copy it all:
 
-This project is a professional dashboard web app for the MASA hackathon report "Modelling Climate-Induced Flood Risk and Insurance Loss Using a Catastrophe Model in Southeast Asia." It includes:
+```markdown
+# 🌊 MASA Dashboard — Climate Flood Risk & Insurance Loss
 
-- A Node.js + Express dashboard app with interactive charts.
-- A PHP example dashboard using `include` files for header, footer, and data.
-- A clean, professional layout for presenting risk metrics, country comparisons, and mitigation scenarios.
+A professional interactive dashboard web app built for the **MASA Hackathon**.  
+Based on the report: *"Modelling Climate-Induced Flood Risk and Insurance Loss Using a Catastrophe Model in Southeast Asia."*
 
-## Structure
+---
 
-- `package.json` - Node.js dependencies and start script.
-- `src/server.js` - Express server providing static assets and JSON APIs.
-- `public/` - Frontend dashboard files, styles, and scripts.
-- `php/` - PHP dashboard example using includes.
+## 📌 About the Project
 
-## Node.js Setup
+This dashboard visualizes flood risk modelling across **Malaysia, Indonesia, and the Philippines**, covering:
+
+- 🌧️ Hazard model for flood occurrence
+- 📉 Severity model for flood impact
+- 💰 Loss estimation through catastrophe modelling
+- 📊 Country risk comparisons and mitigation scenarios
+
+---
+
+## 🗂️ Project Structure
+
+```
+MASA-Hackathon/
+├── public/          # Frontend dashboard (HTML, CSS, JS)
+├── src/
+│   └── server.js    # Express server with static assets & JSON APIs
+├── php/             # PHP dashboard example using includes
+├── index.html       # Entry point
+├── package.json     # Node.js dependencies and start script
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+### Node.js Version
 
 1. Install dependencies:
-   ```bash
-   cd MASA-Dashboard
-   npm install
-   ```
-2. Run the dashboard:
-   ```bash
-   npm start
-   ```
-3. Open `http://localhost:3000` in a browser.
-
-## PHP Example
-
-To run the PHP version, host the `php/` folder with a PHP server or local development environment.
-
-Example using PHP built-in server:
 ```bash
-cd MASA-Dashboard/php
+cd MASA-Hackathon
+npm install
+```
+
+2. Start the server:
+```bash
+npm start
+```
+
+3. Open your browser at:
+```
+http://localhost:3000
+```
+
+---
+
+### PHP Version
+
+Host the `php/` folder using PHP's built-in server:
+
+```bash
+cd MASA-Hackathon/php
 php -S localhost:8000
 ```
-Then open `http://localhost:8000`.
 
-## Project Summary
+Then open:
+```
+http://localhost:8000
+```
 
-The dashboard is designed to reflect the report's modelling framework:
-- Hazard model for flood occurrence
-- Severity model for flood impact
-- Loss estimation through catastrophe modelling
-- Analysis across Malaysia, Indonesia, and the Philippines
+---
 
-## Data Sources
+## 🛠️ Tech Stack
 
-- World Bank World Development Indicators (WDI)
-- WHO climate data
-- EM-DAT disaster database
+| Layer      | Technology              |
+|------------|-------------------------|
+| Frontend   | HTML, CSS, JavaScript   |
+| Backend    | Node.js + Express       |
+| Alt Backend| PHP                     |
+| Charts     | Interactive JS Charts   |
 
-## Notes
+---
 
-The Node.js app uses sample data and chart templates to illustrate the dashboard design. You can easily replace the sample API data with real model outputs from the report.
+## 📦 Data Sources
+
+- 🌍 World Bank — World Development Indicators (WDI)
+- 🏥 WHO — Climate & health data
+- 🗃️ EM-DAT — International Disaster Database
+
+---
+
+## 👥 Contributors
+
+- RavenSaran and team
+
+---
+
+## 📄 License
+
+This project was built for the MASA Hackathon. All rights reserved.
+```
+
+Just select all the text above, copy, and paste it into your `README.md` file! 🚀
