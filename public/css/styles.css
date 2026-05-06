@@ -471,6 +471,7 @@ section {
   }
   .hero-copy {
     max-width: 100%;
+    padding-top: 1.5rem;
   }
   .hero-metrics {
     margin-top: 1rem;
@@ -524,6 +525,9 @@ section {
   .hero-panel {
     padding: 1rem;
     min-height: auto;
+  }
+  .hero-copy {
+    padding-top: 1rem;
   }
   .hero-metrics {
     margin-top: 0.75rem;
