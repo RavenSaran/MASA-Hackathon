@@ -57,8 +57,8 @@ body::before {
   background: linear-gradient(135deg, #1c2d75 0%, #2955ff 45%, #4a2bf7 100%);
   position: relative;
   overflow: hidden;
-  padding-top: 6.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
 }
 
 .hero-section::after {
@@ -86,15 +86,15 @@ body::before {
 }
 
 .hero-copy {
-  max-width: 42rem;
+  max-width: 38rem;
 }
 
 .hero-metrics {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .hero-metrics .metric-card {
-  min-height: 170px;
+  min-height: 150px;
 }
 
 .hero-metrics .metric-label {
