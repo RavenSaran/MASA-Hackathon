@@ -79,6 +79,26 @@ body::before {
 .hero-panel {
   border: 1px solid rgba(25, 36, 58, 0.08);
   padding: 1.8rem;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-copy {
+  max-width: 42rem;
+}
+
+.hero-metrics {
+  margin-top: 2rem;
+}
+
+.hero-metrics .metric-card {
+  min-height: 170px;
+}
+
+.hero-metrics .metric-label {
+  letter-spacing: 0.12em;
 }
 
 .eyebrow {
