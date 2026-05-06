@@ -98,5 +98,3 @@ http://localhost:8000
 
 This project was built for the MASA Hackathon. All rights reserved.
 ```
-
-Just select all the text above, copy, and paste it into your `README.md` file! 🚀
