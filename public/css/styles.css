@@ -453,6 +453,11 @@ section {
 }
 
 @media (max-width: 767px) {
+  body {
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: cover;
+  }
   .hero-section {
     padding-top: 3.5rem;
     padding-bottom: 2rem;
