@@ -64,6 +64,36 @@ const mitigationData = {
   losses: [620, 420, 210]
 };
 
+// Hardcoded country risk data for static deployment (GitHub Pages)
+const defaultCountryRiskData = [
+  {
+    country: 'Indonesia',
+    floodProbability: 0.65,
+    averageLoss: 89.403,
+    riskIndex: 8.5
+  },
+  {
+    country: 'Philippines',
+    floodProbability: 0.48,
+    averageLoss: 53.449,
+    riskIndex: 7.2
+  },
+  {
+    country: 'Malaysia',
+    floodProbability: 0.35,
+    averageLoss: 42.646,
+    riskIndex: 5.8
+  }
+];
+
+// Hardcoded metrics for static deployment
+const defaultMetricsData = {
+  metrics: {
+    rmse: 204,
+    mae: 40
+  }
+};
+
 // ==================== Rendering Functions ====================
 
 /**
@@ -216,42 +246,49 @@ const renderMetricsFromApi = (countryRisk) => {
 
 /**
  * Fetch all dashboard data and render components
+ * Falls back to hardcoded data if API endpoints are unavailable
  */
 const loadDashboard = async () => {
   try {
-    // Fetch all required data in parallel
-    const [summaryRes, countryRiskRes, hazardSeverityRes, mitigationRes, metricsRes] = await Promise.all([
-      fetch('/api/summary'),
-      fetch('/api/country-risk'),
-      fetch('/api/hazard-severity'),
-      fetch('/api/mitigation'),
-      fetch('/api/metrics')
-    ]);
+    let countryRiskData = defaultCountryRiskData;
+    let hazardSeverityData = impactData;
+    let mitigationDataToRender = mitigationData;
+    let metricsData = defaultMetricsData;
 
-    // Check all responses are OK
-    if (!summaryRes.ok) throw new Error(`summary API failed: ${summaryRes.status}`);
-    if (!countryRiskRes.ok) throw new Error(`country-risk API failed: ${countryRiskRes.status}`);
-    if (!hazardSeverityRes.ok) throw new Error(`hazard-severity API failed: ${hazardSeverityRes.status}`);
-    if (!mitigationRes.ok) throw new Error(`mitigation API failed: ${mitigationRes.status}`);
-    if (!metricsRes.ok) throw new Error(`metrics API failed: ${metricsRes.status}`);
+    // Try to fetch from API endpoints (for local npm start)
+    try {
+      const [countryRiskRes, hazardSeverityRes, mitigationRes, metricsRes] = await Promise.all([
+        fetch('/api/country-risk'),
+        fetch('/api/hazard-severity'),
+        fetch('/api/mitigation'),
+        fetch('/api/metrics')
+      ]);
 
-    // Parse JSON responses
-    const summary = await summaryRes.json();
-    const countryRisk = await countryRiskRes.json();
-    const hazardSeverity = await hazardSeverityRes.json();
-    const mitigation = await mitigationRes.json();
-    const metrics = await metricsRes.json();
+      if (countryRiskRes.ok) {
+        const cr = await countryRiskRes.json();
+        countryRiskData = cr.data || cr;
+      }
+      if (hazardSeverityRes.ok) {
+        const hs = await hazardSeverityRes.json();
+        hazardSeverityData = hs.data || hs;
+      }
+      if (mitigationRes.ok) {
+        const m = await mitigationRes.json();
+        mitigationDataToRender = m.data || m;
+      }
+      if (metricsRes.ok) {
+        const met = await metricsRes.json();
+        metricsData = met.data || met;
+      }
+    } catch (apiErr) {
+      // API fetch failed, use defaults - this is expected on GitHub Pages
+      console.log('Using embedded data (API endpoints not available)');
+    }
 
-    // Extract actual data from wrapped response
-    const countryRiskData = countryRisk.data || countryRisk;
-    const hazardSeverityData = hazardSeverity.data || hazardSeverity;
-    const mitigationData = mitigation.data || mitigation;
-    const metricsData = metrics.data || metrics;
-
-    // Render components
+    // Render components with data (API or default)
     renderCards(countryRiskData);
     renderImpactTrendsChart(hazardSeverityData);
-    renderMitigationChart(mitigationData);
+    renderMitigationChart(mitigationDataToRender);
     renderMetricsFromApi(countryRiskData);
 
     // Update model metrics
@@ -266,17 +303,17 @@ const loadDashboard = async () => {
     }
 
     // Calculate mitigation reduction percentage
-    if (Array.isArray(mitigationData?.losses) && mitigationData.losses.length >= 2) {
-      const baseline = Number(mitigationData.losses[0]);
-      const improved = Number(mitigationData.losses[1]);
+    if (Array.isArray(mitigationDataToRender?.losses) && mitigationDataToRender.losses.length >= 2) {
+      const baseline = Number(mitigationDataToRender.losses[0]);
+      const improved = Number(mitigationDataToRender.losses[1]);
       if (baseline > 0 && Number.isFinite(baseline) && Number.isFinite(improved)) {
         const reductionPct = ((baseline - improved) / baseline) * 100;
         setText('[data-metric="mitigation-reduction"]', `${reductionPct.toFixed(0)}% Reduction`);
       }
     }
   } catch (err) {
-    // Log error but keep page usable
-    console.error('Dashboard load failed:', err);
+    // Log error but keep page usable with default data
+    console.error('Dashboard initialization error:', err);
   }
 };
 
