@@ -24,7 +24,7 @@ const impactData = {
   datasets: [
     {
       label: 'Indonesia',
-      data: [0.45, 0.6, 0.55, 0.7, 0.65, 0.8, 0.95, 0.9, 1.0, 0.85],
+      data: [420000, 520000, 480000, 610000, 560000, 750000, 980000, 920000, 1040000, 870000],
       borderColor: '#0d6efd',
       backgroundColor: 'rgba(13, 110, 253, 0.15)',
       tension: 0.35,
@@ -32,7 +32,7 @@ const impactData = {
     },
     {
       label: 'Malaysia',
-      data: [0.15, 0.18, 0.16, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3, 0.32],
+      data: [60000, 75000, 68000, 92000, 98000, 112000, 125000, 134000, 148000, 156000],
       borderColor: '#198754',
       backgroundColor: 'rgba(25, 135, 84, 0.15)',
       tension: 0.35,
@@ -40,7 +40,7 @@ const impactData = {
     },
     {
       label: 'Philippines',
-      data: [0.3, 0.4, 0.85, 1.2, 1.25, 1.1, 1.5, 1.7, 1.4, 1.35],
+      data: [180000, 350000, 950000, 2200000, 2700000, 2100000, 2400000, 4200000, 3600000, 1800000],
       borderColor: '#dc3545',
       backgroundColor: 'rgba(220, 53, 69, 0.15)',
       tension: 0.35,
@@ -98,7 +98,15 @@ const renderImpactTrendsChart = (data) => {
           beginAtZero: true,
           title: {
             display: true,
-            text: 'Flood Impact (USD Billion)'
+            text: 'Total Affected Population'
+          },
+          ticks: {
+            callback: (value) => {
+              if (value >= 1000000) {
+                return `${value / 1000000}M`;
+              }
+              return value;
+            }
           }
         }
       }
