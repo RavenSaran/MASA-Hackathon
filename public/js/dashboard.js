@@ -20,8 +20,33 @@ const countryData = [
 ];
 
 const impactData = {
-  labels: ['Indonesia', 'Malaysia', 'Philippines'],
-  impact: [320, 180, 250]
+  labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+  datasets: [
+    {
+      label: 'Indonesia',
+      data: [0.45, 0.6, 0.55, 0.7, 0.65, 0.8, 0.95, 0.9, 1.0, 0.85],
+      borderColor: '#0d6efd',
+      backgroundColor: 'rgba(13, 110, 253, 0.15)',
+      tension: 0.35,
+      fill: true
+    },
+    {
+      label: 'Malaysia',
+      data: [0.15, 0.18, 0.16, 0.2, 0.22, 0.24, 0.26, 0.28, 0.3, 0.32],
+      borderColor: '#198754',
+      backgroundColor: 'rgba(25, 135, 84, 0.15)',
+      tension: 0.35,
+      fill: true
+    },
+    {
+      label: 'Philippines',
+      data: [0.3, 0.4, 0.85, 1.2, 1.25, 1.1, 1.5, 1.7, 1.4, 1.35],
+      borderColor: '#dc3545',
+      backgroundColor: 'rgba(220, 53, 69, 0.15)',
+      tension: 0.35,
+      fill: true
+    }
+  ]
 };
 
 const mitigationData = {
@@ -52,16 +77,10 @@ const renderImpactTrendsChart = (data) => {
   if (!ctx) return;
 
   new Chart(ctx, {
-    type: 'bar',
+    type: 'line',
     data: {
       labels: data.labels,
-      datasets: [
-        {
-          label: 'Flood Impact (USD Billion)',
-          data: data.impact,
-          backgroundColor: ['#dc3545', '#ffc107', '#28a745']
-        }
-      ]
+      datasets: data.datasets
     },
     options: {
       responsive: true,
@@ -69,7 +88,19 @@ const renderImpactTrendsChart = (data) => {
         legend: { position: 'top' }
       },
       scales: {
-        y: { beginAtZero: true }
+        x: {
+          title: {
+            display: true,
+            text: 'Year'
+          }
+        },
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Flood Impact (USD Billion)'
+          }
+        }
       }
     }
   });
