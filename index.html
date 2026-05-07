@@ -4,12 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=/">
-  <script>
-    window.location.replace('/');
-  </script>
 </head>
 <body>
   <p>Redirecting to the dashboard...</p>
+  <script>
+    (function () {
+      var target = '/';
+      // Try root first (Express serves public/index.html at "/")
+      window.location.replace(target);
+
+      // If it doesn't work (e.g., static host mismatch), try /public/index.html
+      setTimeout(function () {
+        window.location.replace('public/index.html');
+      }, 1500);
+    })();
+  </script>
 </body>
 </html>
