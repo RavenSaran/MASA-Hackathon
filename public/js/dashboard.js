@@ -75,31 +75,6 @@ const renderImpactTrendsChart = (data) => {
   });
 };
 
-const renderCountryRiskChart = (items) => {
-  const ctx = document.getElementById('countryRiskChart');
-  if (!ctx) return;
-
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: items.map((item) => item.country),
-      datasets: [
-        {
-          label: 'Average Flood Loss (USD M)',
-          data: items.map((item) => item.averageLoss),
-          backgroundColor: ['#0d6efd', '#6610f2', '#198754']
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: { beginAtZero: true }
-      }
-    }
-  });
-};
-
 const renderMitigationChart = (data) => {
   const ctx = document.getElementById('mitigationChart');
   if (!ctx) return;
@@ -128,7 +103,6 @@ const renderMitigationChart = (data) => {
 const loadDashboard = () => {
   renderCards(countryData);
   renderImpactTrendsChart(impactData);
-  renderCountryRiskChart(countryData);
   renderMitigationChart(mitigationData);
 };
 
