@@ -1,7 +1,22 @@
 const countryData = [
-  { country: 'Indonesia', riskIndex: '92', floodProbability: 0.83, averageLoss: 820 },
-  { country: 'Malaysia', riskIndex: '78', floodProbability: 0.64, averageLoss: 420 },
-  { country: 'Philippines', riskIndex: '85', floodProbability: 0.71, averageLoss: 510 }
+  {
+    country: 'Indonesia',
+    floodPattern: 'High Frequency',
+    riskDriver: 'Rainfall Intensity',
+    impactLevel: 'Moderate–High'
+  },
+  {
+    country: 'Malaysia',
+    floodPattern: 'Increasing Exposure',
+    riskDriver: 'Urbanisation + Rainfall',
+    impactLevel: 'Moderate'
+  },
+  {
+    country: 'Philippines',
+    floodPattern: 'High Severity Events',
+    riskDriver: 'Extreme Rainfall',
+    impactLevel: 'High'
+  }
 ];
 
 const hazardData = {
@@ -24,14 +39,10 @@ const renderCards = (countries) => {
     const card = document.createElement('div');
     card.className = 'list-group-item border-0 py-3';
     card.innerHTML = `
-      <div class="d-flex justify-content-between align-items-center">
-        <div>
-          <h6 class="mb-1">${item.country}</h6>
-          <small class="text-muted">Risk Index: ${item.riskIndex}</small>
-        </div>
-        <span class="badge bg-primary rounded-pill">${Math.round(item.floodProbability * 100)}%</span>
-      </div>
-      <p class="mb-0 mt-2">Average loss estimate: USD ${item.averageLoss}M</p>
+      <h6 class="mb-2">${item.country}</h6>
+      <p class="mb-1 text-muted"><strong>Flood Pattern:</strong> ${item.floodPattern}</p>
+      <p class="mb-1 text-muted"><strong>Risk Driver:</strong> ${item.riskDriver}</p>
+      <p class="mb-0 text-muted"><strong>Impact Level:</strong> ${item.impactLevel}</p>
     `;
     container.appendChild(card);
   });
