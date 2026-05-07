@@ -85,7 +85,20 @@ const renderImpactTrendsChart = (data) => {
     options: {
       responsive: true,
       plugins: {
-        legend: { position: 'top' }
+        legend: { position: 'top' },
+        tooltip: {
+          callbacks: {
+            label: (context) => {
+              const value = context.parsed.y;
+              const formatted = value >= 1000000 ? `${(value / 1000000).toFixed(1)}M` : value;
+              return `${context.dataset.label}: ${formatted}`;
+            }
+          }
+        },
+        title: {
+          display: true,
+          text: 'Total Affected Population by Country'
+        }
       },
       scales: {
         x: {
@@ -103,7 +116,7 @@ const renderImpactTrendsChart = (data) => {
           ticks: {
             callback: (value) => {
               if (value >= 1000000) {
-                return `${value / 1000000}M`;
+                return `${(value / 1000000).toFixed(1)}M`;
               }
               return value;
             }
