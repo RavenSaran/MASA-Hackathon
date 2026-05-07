@@ -218,13 +218,6 @@ const renderMetricsFromApi = (countryRisk) => {
  * Fetch all dashboard data and render components
  */
 const loadDashboard = async () => {
-  // Fallback values (used when /api endpoints aren't available, e.g. GitHub Pages)
-  const fallbackCountryRisk = [
-    { country: 'Malaysia', floodProbability: 0.19, averageLoss: 14.6, riskIndex: 72 },
-    { country: 'Indonesia', floodProbability: 0.32, averageLoss: 18.1, riskIndex: 85 },
-    { country: 'Philippines', floodProbability: 0.24, averageLoss: 22.3, riskIndex: 88 }
-  ];
-
   try {
     // Fetch all required data in parallel
     const [summaryRes, countryRiskRes, hazardSeverityRes, mitigationRes, metricsRes] = await Promise.all([
@@ -282,14 +275,8 @@ const loadDashboard = async () => {
       }
     }
   } catch (err) {
-    // Log error but keep page usable + show fallback visuals
+    // Log error but keep page usable
     console.error('Dashboard load failed:', err);
-
-    renderCards(fallbackCountryRisk);
-
-    // Use built-in defaults already declared at the top of the file.
-    renderImpactTrendsChart(null);
-    renderMitigationChart(null);
   }
 };
 
