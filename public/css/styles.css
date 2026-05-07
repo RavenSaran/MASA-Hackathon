@@ -26,6 +26,7 @@ body {
   margin: 0;
 }
 
+
 main {
   padding-top: 2.5rem;
   padding-bottom: 3rem;
@@ -38,6 +39,7 @@ section {
 html {
   scroll-behavior: smooth;
 }
+
 
 body::before {
   content: '';
@@ -84,11 +86,11 @@ body::before {
   min-height: 520px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .hero-panel-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .hero-panel .eyebrow {
@@ -115,6 +117,7 @@ body::before {
   position: relative;
   overflow: hidden;
   border-radius: 1.5rem;
+  margin-bottom: 0.95rem;
 }
 
 .hero-panel .ratio::after {
@@ -135,6 +138,7 @@ body::before {
 
 .hero-copy .eyebrow {
   color: var(--accent);
+  margin-top: 1rem; /* consistent spacing without inline padding */
 }
 
 .hero-copy h1 {
@@ -151,6 +155,29 @@ body::before {
 .hero-metrics {
   margin-top: 1.5rem;
   align-items: stretch;
+}
+
+/* Push the KPI cards lower inside the hero panel (matches screenshot composition) */
+.hero-country-kpis {
+  margin-top: 2.25rem;
+}
+
+/* Desktop/laptop: enforce consistent grid sizing so cards don't look "off" */
+@media (min-width: 992px) {
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Keep bootstrap cols from interfering with grid layout */
+  .hero-metrics > .col-sm-6.col-xl-3 {
+    width: 100%;
+    min-width: 0;
+  }
 }
 
 .hero-metrics .col-sm-6 {
@@ -488,6 +515,21 @@ section {
 
 .badge.bg-primary {
   background-color: var(--primary);
+}
+
+/* Centered, consistent laptop/tablet layout width */
+.page-shell {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 992px) {
+  /* Reduce “too-wide” feel on large screens */
+  .page-shell {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
 }
 
 @media (max-width: 991px) {
