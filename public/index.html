@@ -48,7 +48,7 @@
               <span class="badge bg-primary py-2 px-3">Updated 2 min ago</span>
             </div>
             <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm position-relative">
-              <img src="public/image10.jpg" alt="Asia Map Dark Blue" class="w-100 h-100 object-fit-cover" />
+              <img src="image10.jpg" alt="Asia Map Dark Blue" class="w-100 h-100 object-fit-cover" />
               <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(180deg, rgba(4, 34, 70, 0.28), rgba(2, 12, 24, 0.60));"></div>
             </div>
             <div class="d-flex flex-wrap gap-3 mt-4">
@@ -56,38 +56,74 @@
               <div class="status-pill bg-success text-white rounded-pill px-3 py-2">Mitigation ready</div>
               <div class="status-pill bg-warning text-dark rounded-pill px-3 py-2">Urban growth pressure</div>
             </div>
+            <div class="row gx-3 gy-3 mt-4 hero-country-kpis">
+              <div class="col-12">
+                <div class="d-flex flex-column flex-md-row gap-3">
+                  <div class="metric-card p-4 rounded-4 shadow-sm flex-fill">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                      <div>
+                        <span class="metric-label">Malaysia predicted affected</span>
+                        <h3 class="metric-value">42,646</h3>
+                      </div>
+                      <span class="badge bg-success py-2 px-3">Increasing Exposure</span>
+                    </div>
+                    <p class="metric-note text-secondary small mb-0">Population most at risk from rising flood exposure in 2024.</p>
+                  </div>
+                  <div class="metric-card p-4 rounded-4 shadow-sm flex-fill">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                      <div>
+                        <span class="metric-label">Indonesia predicted affected</span>
+                        <h3 class="metric-value">89,403</h3>
+                      </div>
+                      <span class="badge bg-danger py-2 px-3">High Frequency</span>
+                    </div>
+                    <p class="metric-note text-secondary small mb-0">Country with the highest predicted affected population in 2024.</p>
+                  </div>
+                  <div class="metric-card p-4 rounded-4 shadow-sm flex-fill">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                      <div>
+                        <span class="metric-label">Philippines predicted affected</span>
+                        <h3 class="metric-value">53,449</h3>
+                      </div>
+                      <span class="badge bg-primary py-2 px-3">High Severity</span>
+                    </div>
+                    <p class="metric-note text-secondary small mb-0">Projected affected population from severe flood events in 2024.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="row gx-3 gy-3 mt-5 hero-metrics">
         <div class="col-sm-6 col-xl-3">
           <div class="metric-card p-3 rounded-4 shadow-sm">
-            <div class="metric-icon">💰</div>
+            <div class="metric-icon metric-icon-blue">💵</div>
             <span class="metric-label">Projected Annual Loss<br><small class="text-secondary">Model Estimate</small></span>
-            <h3 class="metric-value">USD 1.32B</h3>
+            <h3 class="metric-value metric-value-blue">USD 1.32B</h3>
             <p class="metric-note text-secondary small mb-0">Based on CAT model predictions (2024 baseline scenario)</p>
           </div>
         </div>
         <div class="col-sm-6 col-xl-3">
           <div class="metric-card p-3 rounded-4 shadow-sm">
-            <div class="metric-icon">📍</div>
+            <div class="metric-icon metric-icon-red">🌊</div>
             <span class="metric-label">Highest Risk Exposure Country</span>
-            <h3 class="metric-value">Indonesia</h3>
+            <h3 class="metric-value metric-value-red">Indonesia</h3>
             <p class="metric-note text-secondary small mb-0">High-frequency flood profile with highest cumulative impact</p>
           </div>
         </div>
         <div class="col-sm-6 col-xl-3">
           <div class="metric-card p-3 rounded-4 shadow-sm">
-            <div class="metric-icon">✅</div>
+            <div class="metric-icon metric-icon-green">📈</div>
             <span class="metric-label">Model Performance (Validation)</span>
-            <h3 class="metric-value">RMSE ≈ 204K<br>MAE ≈ 40K</h3>
+            <h3 class="metric-value metric-value-green">RMSE ≈ 204K<br>MAE ≈ 40K</h3>
           </div>
         </div>
         <div class="col-sm-6 col-xl-3">
           <div class="metric-card p-3 rounded-4 shadow-sm">
-            <div class="metric-icon">🔧</div>
+            <div class="metric-icon metric-icon-purple">🛡️</div>
             <span class="metric-label">Mitigation Impact (Stress Test)</span>
-            <h3 class="metric-value">20–30% Reduction</h3>
+            <h3 class="metric-value metric-value-purple">20–30% Reduction</h3>
             <p class="metric-note text-secondary small mb-0">Based on vulnerability & rainfall scenario adjustments</p>
           </div>
         </div>
@@ -189,6 +225,7 @@
           </div>
         </div>
       </div>
+
     </section>
 
     <section id="figures" class="mb-5">

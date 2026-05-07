@@ -209,14 +209,11 @@ body::before {
   flex-direction: column;
   justify-content: space-between;
   gap: 0.75rem;
-}
-
-.metric-card, .metric-card * {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .metric-card p {
-  color: rgba(255, 255, 255, 0.78) !important;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .hero-section .row.gx-3 {
@@ -249,8 +246,48 @@ body::before {
 .metric-card .metric-value {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #ffffff;
+  color: inherit;
   margin-bottom: 0.5rem;
+}
+
+.metric-card .metric-value.metric-value-blue,
+.metric-value-blue {
+  color: #82cfff !important;
+}
+
+.metric-card .metric-value.metric-value-red,
+.metric-value-red {
+  color: #ff7f7f !important;
+}
+
+.metric-card .metric-value.metric-value-green,
+.metric-value-green {
+  color: #7be39a !important;
+}
+
+.metric-card .metric-value.metric-value-purple,
+.metric-value-purple {
+  color: #c399ff !important;
+}
+
+.metric-icon-blue {
+  background: rgba(51, 164, 255, 0.18);
+  color: #80d4ff;
+}
+
+.metric-icon-red {
+  background: rgba(255, 102, 102, 0.16);
+  color: #ff9d9d;
+}
+
+.metric-icon-green {
+  background: rgba(62, 227, 176, 0.16);
+  color: #8cf0c3;
+}
+
+.metric-icon-purple {
+  background: rgba(171, 120, 255, 0.16);
+  color: #d7b5ff;
 }
 
 .metric-card p {
