@@ -19,10 +19,9 @@ const countryData = [
   }
 ];
 
-const hazardData = {
-  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-  hazard: [52, 58, 60, 68, 72, 75],
-  severity: [34, 38, 42, 46, 50, 53]
+const impactData = {
+  labels: ['2010', '2015', '2020', '2025'],
+  impact: [120, 180, 250, 320]
 };
 
 const mitigationData = {
@@ -48,7 +47,7 @@ const renderCards = (countries) => {
   });
 };
 
-const renderHazardSeverityChart = (data) => {
+const renderImpactTrendsChart = (data) => {
   const ctx = document.getElementById('hazardSeverityChart');
   if (!ctx) return;
 
@@ -58,18 +57,10 @@ const renderHazardSeverityChart = (data) => {
       labels: data.labels,
       datasets: [
         {
-          label: 'Hazard Score',
-          data: data.hazard,
-          borderColor: '#0d6efd',
-          backgroundColor: 'rgba(13, 110, 253, 0.15)',
-          tension: 0.35,
-          fill: true
-        },
-        {
-          label: 'Severity Score',
-          data: data.severity,
-          borderColor: '#198754',
-          backgroundColor: 'rgba(25, 135, 84, 0.15)',
+          label: 'Flood Impact (USD Billion)',
+          data: data.impact,
+          borderColor: '#dc3545',
+          backgroundColor: 'rgba(220, 53, 69, 0.15)',
           tension: 0.35,
           fill: true
         }
@@ -136,7 +127,7 @@ const renderMitigationChart = (data) => {
 
 const loadDashboard = () => {
   renderCards(countryData);
-  renderHazardSeverityChart(hazardData);
+  renderImpactTrendsChart(impactData);
   renderCountryRiskChart(countryData);
   renderMitigationChart(mitigationData);
 };
