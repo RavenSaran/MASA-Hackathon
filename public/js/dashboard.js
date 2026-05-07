@@ -20,8 +20,8 @@ const countryData = [
 ];
 
 const impactData = {
-  labels: ['2010', '2015', '2020', '2025'],
-  impact: [120, 180, 250, 320]
+  labels: ['Indonesia', 'Malaysia', 'Philippines'],
+  impact: [320, 180, 250]
 };
 
 const mitigationData = {
@@ -52,17 +52,14 @@ const renderImpactTrendsChart = (data) => {
   if (!ctx) return;
 
   new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
       labels: data.labels,
       datasets: [
         {
           label: 'Flood Impact (USD Billion)',
           data: data.impact,
-          borderColor: '#dc3545',
-          backgroundColor: 'rgba(220, 53, 69, 0.15)',
-          tension: 0.35,
-          fill: true
+          backgroundColor: ['#dc3545', '#ffc107', '#28a745']
         }
       ]
     },
@@ -70,6 +67,9 @@ const renderImpactTrendsChart = (data) => {
       responsive: true,
       plugins: {
         legend: { position: 'top' }
+      },
+      scales: {
+        y: { beginAtZero: true }
       }
     }
   });
