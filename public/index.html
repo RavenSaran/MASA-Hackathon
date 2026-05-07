@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="public/css/styles.css?v=2" />
+  <link rel="stylesheet" href="css/styles.css?v=2" />
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-glass border-bottom fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand fw-bold" href="#">Flood Risk Intelligence</a>
+      <a class="navbar-brand fw-bold" href="#">MASA Risk Intelligence</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -31,10 +31,9 @@
 
   <header class="hero-section text-white pt-7 pb-6">
     <div class="container-fluid px-4 px-xl-5">
-    <div class="container-xl page-shell px-4 px-xl-5">
       <div class="row align-items-center gy-4">
         <div class="col-lg-6 hero-copy">
-              <p class="eyebrow mb-3" style="padding-top: 20px;">MASA Climate Risk Intelligence</p>
+          <p class="eyebrow mb-3" style="padding-top: 20px;">MASA Climate Risk Intelligence</p>
           <h1 class="display-5 fw-bold lh-1 mb-3">Climate-Driven Flood Risk Modelling for Southeast Asia</h1>
           <p class="lead text-white-75">A catastrophe (CAT) modelling dashboard integrating climate indicators, socio-economic exposure, and disaster data to quantify flood risk, estimate potential losses, and evaluate mitigation strategies across Malaysia, Indonesia, and the Philippines.</p>
         </div>
@@ -49,7 +48,8 @@
               <span class="badge bg-primary py-2 px-3">Updated 2 min ago</span>
             </div>
             <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm position-relative">
-              <img src="public/image10.jpg" alt="Asia Map Dark Blue" class="w-100 h-100 object-fit-cover" />
+              <img src="image10.jpg" alt="Asia Map Dark Blue" class="w-100 h-100 object-fit-cover" />
+              <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(180deg, rgba(4, 34, 70, 0.28), rgba(2, 12, 24, 0.60));"></div>
             </div>
             <div class="d-flex flex-wrap gap-3 mt-4">
               <div class="status-pill bg-primary text-white rounded-pill px-3 py-2">High hazard exposure</div>
@@ -132,7 +132,6 @@
   </header>
 
   <main class="container-fluid px-4 px-xl-5 py-4">
-  <main class="container-xl page-shell px-4 px-xl-5 py-4">
     <section id="overview" class="mb-5">
       <div class="row gx-4 gy-4">
         <div class="col-xl-8">
@@ -157,7 +156,7 @@
                 <div class="col">
                   <div class="info-tile p-3 rounded-4 bg-surface-alt">
                     <strong>Model architecture</strong>
-                    <p class="mb-0 text-secondary">Hazard + Severity → Loss</p>
+                    <p class="mb-0 text-secondary">Hazard (Probability) + Severity (Impact) → Loss</p>
                   </div>
                 </div>
                 <div class="col">
@@ -222,11 +221,11 @@
             <div class="card-body">
               <h3 class="h5 mb-3">Mitigation scenario impact</h3>
               <canvas id="mitigationChart" height="260"></canvas>
-              <p class="text-muted mt-3">Mitigation strategies, including improved drainage and infrastructure, can reduce expected flood losses by approximately 20–30%, demonstrating strong potential for risk reduction.</p>
             </div>
           </div>
         </div>
       </div>
+
     </section>
 
     <section id="figures" class="mb-5">
@@ -238,7 +237,6 @@
                 <div>
                   <span class="eyebrow text-primary">Visual storytelling</span>
                   <h2 class="h4 mt-2">Key figures from the report</h2>
-                  <p class="text-muted mt-2 mb-0">These figures summarise the core findings of the catastrophe model, including flood frequency, severity patterns, and model performance across Southeast Asia.</p>
                 </div>
                 <p class="text-secondary mb-0">Browse the model framework, validation checks, and risk trends by country.</p>
               </div>
@@ -246,31 +244,31 @@
                 <div class="col-sm-6 col-lg-4">
                   <div class="figure-card p-3 rounded-4 shadow-sm bg-surface-alt">
                     <div class="figure-title">Catastrophe Model Architecture</div>
-                    <img src="public/image3.png" alt="Catastrophe Model Architecture" class="img-fluid rounded mt-3" />
+                    <img src="image3.png" alt="Catastrophe Model Architecture" class="img-fluid rounded mt-3" />
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="figure-card p-3 rounded-4 shadow-sm bg-surface-alt">
                     <div class="figure-title">Model Validation: Actual vs Predicted</div>
-                    <img src="public/image7.png" alt="Model Validation: Actual vs Predicted" class="img-fluid rounded mt-3" />
+                    <img src="image7.png" alt="Model Validation: Actual vs Predicted" class="img-fluid rounded mt-3" />
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="figure-card p-3 rounded-4 shadow-sm bg-surface-alt">
                     <div class="figure-title">Average Annual Loss by Country</div>
-                    <img src="public/image2.png" alt="Average Annual Loss by Country" class="img-fluid rounded mt-3" />
+                    <img src="image2.png" alt="Average Annual Loss by Country" class="img-fluid rounded mt-3" />
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="figure-card p-3 rounded-4 shadow-sm bg-surface-alt">
                     <div class="figure-title">Flood Event Frequency by Country</div>
-                    <img src="public/image1.png" alt="Flood Event Frequency by Country" class="img-fluid rounded mt-3" />
+                    <img src="image1.png" alt="Flood Event Frequency by Country" class="img-fluid rounded mt-3" />
                   </div>
                 </div>
                 <div class="col-sm-6 col-lg-4">
                   <div class="figure-card p-3 rounded-4 shadow-sm bg-surface-alt">
                     <div class="figure-title">Mitigation Impact: Baseline vs Strategy</div>
-                    <img src="public/image4.png" alt="Mitigation Impact: Baseline vs Strategy" class="img-fluid rounded mt-3" />
+                    <img src="image4.png" alt="Mitigation Impact: Baseline vs Strategy" class="img-fluid rounded mt-3" />
                   </div>
                 </div>
               </div>
@@ -293,11 +291,10 @@
                 <span class="badge bg-success">Trusted sources</span>
               </div>
               <ul class="source-list">
-                <li>World Bank (WDI) for socio-economic indicators</li>
-                <li>WHO for climate variables</li>
-                <li>EM-DAT for historical disaster records</li>
+                <li>World Bank World Development Indicators (WDI)</li>
+                <li>World Health Organization (WHO) climate datasets</li>
+                <li>EM-DAT disaster database for historic flood impact</li>
               </ul>
-              <p class="text-muted mb-3">These datasets were integrated to construct a unified climate risk modelling framework.</p>
               <p class="text-muted mb-0">This dashboard is designed to support decision-making, resilience planning, and prioritisation for flood risk mitigation in Southeast Asia.</p>
             </div>
           </div>
@@ -312,6 +309,6 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="public/js/dashboard.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
