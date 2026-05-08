@@ -229,9 +229,9 @@ const renderMetricsFromApi = (countryRisk) => {
   const philippines = byCountry['Philippines'];
 
   // Update country-specific metrics
-  if (malaysia?.averageLoss != null) setText('[data-metric="ma-affected"]', formatNumberCompact(Math.round(malaysia.averageLoss * 1000)));
-  if (indonesia?.averageLoss != null) setText('[data-metric="id-affected"]', formatNumberCompact(Math.round(indonesia.averageLoss * 1000)));
-  if (philippines?.averageLoss != null) setText('[data-metric="ph-affected"]', formatNumberCompact(Math.round(philippines.averageLoss * 1000)));
+  if (malaysia?.averageLoss != null) setText('[data-metric="ma-affected"]', Math.round(malaysia.averageLoss * 1000).toLocaleString());
+  if (indonesia?.averageLoss != null) setText('[data-metric="id-affected"]', Math.round(indonesia.averageLoss * 1000).toLocaleString());
+  if (philippines?.averageLoss != null) setText('[data-metric="ph-affected"]', Math.round(philippines.averageLoss * 1000).toLocaleString());
 
   // Find highest risk country
   const top = countryRisk.reduce((best, curr) => (curr.riskIndex > best.riskIndex ? curr : best), countryRisk[0]);
