@@ -116,7 +116,7 @@ npm start
 curl http://localhost:3000/api/summary
 
 # Pretty print JSON
-curl http://localhost:3000/api/country-risk | json_pp
+curl http://localhost:3000/api/country-risk | python -m json.tool
 ```
 
 #### Using built-in browser DevTools

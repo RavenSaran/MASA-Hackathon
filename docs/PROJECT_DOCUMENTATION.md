@@ -27,7 +27,6 @@ MASA-Dashboard/
 │   │   ├── logger.js                # Logging utility
 │   │   └── errorHandler.js          # Error handling utility
 │   └── constants/                   # Application constants
-│       ├── api.js                   # API constants
 │       └── data.js                  # Data constants
 ├── public/                           # Frontend static assets
 │   ├── index.html                   # Main HTML file

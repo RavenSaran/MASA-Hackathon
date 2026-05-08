@@ -91,7 +91,6 @@ MASA-Dashboard/
 │   │   ├── logger.js                # Logging utility
 │   │   └── errorHandler.js          # Error handling
 │   └── constants/
-│       ├── api.js                   # API constants
 │       └── data.js                  # Application data
 ├── public/                           # Frontend assets
 │   ├── index.html                   # Main HTML page
@@ -102,9 +101,7 @@ MASA-Dashboard/
 │   └── assets/                      # Static assets
 ├── php/                              # Alternative PHP implementation
 │   ├── index.php
-│   └── includes/
 ├── docs/                             # Documentation
-├── config/                           # Configuration files
 ├── .env.example                      # Environment template
 ├── .gitignore                        # Git ignore rules
 ├── package.json                      # Dependencies
@@ -258,10 +255,10 @@ curl http://localhost:3000/health
 ### Country Risk
 ```json
 {
-  "country": "Indonesia",
-  "floodProbability": 0.32,
-  "averageLoss": 18.1,
-  "riskIndex": 85
+  "country": "Philippines",
+  "floodProbability": 0.24,
+  "averageLoss": 22.3,
+  "riskIndex": 88
 }
 ```
 
@@ -287,10 +284,12 @@ curl http://localhost:3000/health
 ## 🐛 Troubleshooting
 
 ### Port Already in Use
+On Windows:
 ```bash
-# Find and kill process on port 3000
-lsof -i :3000
-kill -9 <PID>
+# Find process ID (PID) using port 3000
+netstat -ano | findstr :3000
+# Kill the process by PID
+taskkill /PID <PID> /F
 ```
 
 ### Dependencies Not Installed

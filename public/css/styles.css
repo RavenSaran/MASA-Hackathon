@@ -345,6 +345,8 @@ section {
 .dashboard-card .eyebrow,
 .dashboard-card .status-pill {
   color: rgba(255,255,255,0.92) !important;
+  /* A more specific override if needed, but direct color definitions are better */
+  /* Example: color: var(--text) !important; */
 }
 
 .dashboard-card:hover {
@@ -467,10 +469,12 @@ section {
 }
 
 .card, .hero-panel, .metric-card {
+.card, .hero-panel, .metric-card, .dashboard-card, .figure-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .card:hover, .metric-card:hover, .figure-card:hover {
+.card:hover, .metric-card:hover, .figure-card:hover, .dashboard-card:hover {
   transform: translateY(-3px);
 }
 
